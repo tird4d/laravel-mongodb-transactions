@@ -171,7 +171,7 @@ class Builder extends JenssegersBuilder
     /**
      * @inheritdoc
      */
-    public function truncate()
+    public function truncate(): bool
     {
         $result = $this->collection->drop();
 
