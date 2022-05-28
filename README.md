@@ -1,21 +1,21 @@
-# laravel-mongodb-transactions
+# Laravel Mongodb Transactions
 
-### 介绍
+### Introduction
 
 
-Jensseger的laravel-mongodb扩展包在Laravel开发人员中非常受欢迎，但是缺少一个事务的功能。mongoDB 4.x支持多文档事务。因此，该软件包扩展了[Jenssegers/laravel-mongodb](https://github.com/jenssegers/laravel-mongodb)，支持事务功能。
+Jensseger's laravel-mongodb extension package is very popular among Laravel developers, but it lacks a transactional feature. mongoDB 4.x supports multi-document transactions. Therefore, this package extends [Jenssegers/laravel-mongodb](https://github.com/jenssegers/laravel-mongodb) with transactional support.
 
-1. mongoDB事务是基于 mongoDB4.x 副本集环境下。[mongoDB](https://docs.mongodb.com/manual/core/transactions)
-2. 本包依赖于[Jenssegers/laravel-mongodb](https://packagist.org/packages/jenssegers/mongodb)，因此首先需要安装它。
+1. mongoDB transactions are based on the mongoDB4.x replica set environment. [mongoDB](https://docs.mongodb.com/manual/core/transactions)
+2. This package depends on [Jenssegers/laravel-mongodb](https://packagist.org/packages/jenssegers/mongodb), so it needs to be installed first.
 
-### 安装
+### Installation
 
-关于包的使用, 需要替换[Jenssegers/laravel-mongodb](https://packagist.org/packages/jenssegers/mongodb#installation):
+Regarding the use of packages, it is necessary to replace [Jenssegers/laravel-mongodb](https://packagist.org/packages/jenssegers/mongodb#installation):
 
 Laravel
 ```php
 //Jenssegers\Mongodb\MongodbServiceProvider::class,
-Zs\Mongodb\MongodbServiceProvider::class,
+Zs\Mongodb\MongodbServiceProvider::class
 ```
 
 Lumen
@@ -28,7 +28,7 @@ $app->withEloquent();
 
 Eloquent
 --------
-Eloquent 仅扩展了关于事务相关的内容，因此直接替换 [Jenssegers/laravel-mongodb](https://github.com/jenssegers/laravel-mongodb#eloquent)
+Eloquent only expands on transaction-related content, so it directly replaces [Jenssegers/laravel-mongodb](https://github.com/jenssegers/laravel-mongodb#eloquent)
 
 ```php
 //use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
@@ -48,9 +48,9 @@ class MyModel extends Eloquent {
 }
 ```
 
-更多 Eloquent 文档见 (http://laravel.com/docs/eloquent)
+For more Eloquent documentation see (http://laravel.com/docs/eloquent)
 
-### 使用
+### Usage
 
 ```php
 DB::beginTransaction();
