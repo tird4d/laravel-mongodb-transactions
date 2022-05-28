@@ -1,0 +1,36 @@
+{
+    "name": "salvation/laravel-mongodb-transactions",
+    "description": "Extend Jenssegers/laravel-mongodb to support transaction function",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Salvation Arinze",
+            "email": "modernbabbage@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "jenssegers/mongodb": "3.8.x"
+    },
+    "require-dev": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-4": { "Zs\\": "src/" }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Zs\\Mongodb\\MongodbServiceProvider"
+            ]
+        }
+    }
+
+}

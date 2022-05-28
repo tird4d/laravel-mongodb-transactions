@@ -23,7 +23,6 @@ class Builder extends JenssegersBuilder
         $this->grammar = new Grammar;
         $this->connection = $connection;
         $this->processor = $processor;
-        $this->useCollections = $this->shouldUseCollections();
     }
 
     /**
