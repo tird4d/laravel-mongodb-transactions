@@ -1,5 +1,5 @@
 {
-    "name": "salvation/laravel-mongodb-transactions",
+    "name": "tird4d/laravel-mongodb-transactions",
     "description": "Extend Jenssegers/laravel-mongodb to support transaction function",
     "type": "library",
     "license": "MIT",
