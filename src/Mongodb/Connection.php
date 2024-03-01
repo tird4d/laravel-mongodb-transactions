@@ -9,6 +9,7 @@ namespace Zs\Mongodb;
 
 
 use Jenssegers\Mongodb\Connection as JenssegersConnection;
+use MongoDB\Driver\Session;
 use Zs\Mongodb\Query\Builder;
 
 class Connection extends JenssegersConnection
@@ -16,7 +17,7 @@ class Connection extends JenssegersConnection
     /**
      * @var \MongoDB\Driver\Session
      */
-    protected $session;
+    protected ?Session $session = null;
 
     /**
      * @description: 创建事务
@@ -24,7 +25,7 @@ class Connection extends JenssegersConnection
      * @param array $options
      * @date 2019-07-22
      */
-    public function beginTransaction(array $options = [])
+    public function beginTransaction(array $options = []): void
     {
         if (!$this->getSession()) {
             $this->session = $this->getMongoClient()->startSession();
@@ -37,7 +38,7 @@ class Connection extends JenssegersConnection
      *
      * @date 2019-07-22
      */
-    public function commit()
+    public function commit(): void
     {
         if ($this->getSession()) {
             $this->session->commitTransaction();
@@ -51,7 +52,7 @@ class Connection extends JenssegersConnection
      * @param $toLevel
      * @date 2019-07-22
      */
-    public function rollBack($toLevel = null)
+    public function rollBack($toLevel = null): void
     {
         if ($this->getSession()) {
             $this->session->abortTransaction();
@@ -82,7 +83,7 @@ class Connection extends JenssegersConnection
         return $query->from($collection);
     }
 
-    public function getSession()
+    public function getSession(): ?Session
     {
         return $this->session;
     }
